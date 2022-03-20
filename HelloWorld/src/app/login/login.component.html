@@ -1,0 +1,30 @@
+<div class="container">
+    <form class="login__wrap" [formGroup]="loginForm" (submit)="onSubmit()">
+        <p class="login__group">
+            <mat-form-field appearance="outline" class="login__item">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="username">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint class="login__error" *ngIf="submitted && loginForm.controls['username'].errors">
+                    <span *ngIf="loginForm.controls['username'].errors['required']">Vui long nhap username</span>
+                </mat-hint>
+            </mat-form-field>
+        </p>
+        <p class="login__group">
+            <mat-form-field appearance="outline" class="login__item">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint class="login__error" *ngIf="submitted && loginForm.controls['password'].errors">
+                    <span *ngIf="loginForm.controls['password'].errors['required']">Vui long nhap password</span>
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <p class="login__group">
+            <button mat-raised-button color="primary">Login</button>
+        </p>
+    </form>
+</div>
