@@ -25,6 +25,9 @@
 
         <p class="login__group">
             <button mat-raised-button color="primary">Login</button>
+            <mat-hint class="login__error" *ngIf="error">
+                {{error}}
+            </mat-hint>
         </p>
     </form>
 </div>
