@@ -1,1 +1,12 @@
-<app-login></app-login>
+<div>
+
+  <a mat-button routerLink="/">Home</a>
+
+  <a mat-button routerLink="/admin">Admin</a>
+
+  <button mat-button (click)="logout()">Logout</button>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
